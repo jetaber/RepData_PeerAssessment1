@@ -3,7 +3,6 @@
 `r opts_chunk$set(echo=TRUE)`
 
 ```{r}
-library(ggplot2) # we shall use ggplot2 for plotting figures
 library(lattice)
 ```
 
@@ -155,13 +154,8 @@ spiweekday$weekday.or.weekend<-as.factor('weekday')
 
 spibydayofweek <- rbind(spiweekend,spiweekday)
 
-print(spibydayofweek)
-
 xyplot(steps ~ interval | factor(weekday.or.weekend), data = spibydayofweek, layout=c(1,2), ylab="Steps", xlab="Interval",type="l")
-
-
-
 ```
 
 Comparing weekdays to weekends, the steps taken per interval seems less concentrated on weekends.  
-This could be accounted for by the data being collected from individuals with an interest in fitness and therefore walking or running during their lunch hour while primarily sendentary during the rest of the working hours. Such individuals would have more opportunities to run or walk over the weekend, leading to more difuse data.  
+This could be accounted for by the data being collected from individuals with an interest in fitness and therefore walking or running before work while primarily sendentary during the rest of the working hours. Such individuals would have more opportunities to run or walk over the weekend, leading to more difuse data.  
